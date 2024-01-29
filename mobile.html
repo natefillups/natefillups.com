@@ -1,0 +1,148 @@
+<!DOCTYPE HTML> <html> <head> <title>arjunlalith.com</title> <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+body {
+	-webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
+.iOSbackground {
+	background-image: url('./images/iOSbg.png');
+	width: 100vw;
+	height: 100vh; 
+	margin-top: 0;
+	margin-left: 0;
+}
+.optionSection {
+	width: 80%;
+	height: 8%;
+	background-color: #f7f7f7;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 22px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #cacaca;
+	font-size: 25px;
+	padding-left: 22px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	
+}
+.topSection {
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+}
+.botSection {
+	margin-top: 0px;
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+
+}
+
+.textSection {
+	border-radius: 16px;
+	display: none;
+	height: auto;
+}
+.iOSHeader{
+	background-image: url('./images/iOSHeaderBG.png');
+	background-repeat: x-repeat;
+	background-size: contain;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5em;
+	color: white;
+	width: 100vw;
+	height: 7.82%;
+	position: relative;
+}
+.backButton {
+	height: 65%;
+	width: 22%;
+	display: none;
+	position: absolute;
+	color: white;
+	left: 1%;
+	font-size: 0.7em;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background-image: url('./images/iOSBack.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.nextIcon {
+	width: 17px;
+	height: 26px;
+	position: absolute;
+	right: 0;
+	margin-right: 26px;
+}
+</style>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+	function downAnim(section) {
+		section.style.backgroundColor="#0956eb";
+		section.style.color="#f7f7f7";
+		section.getElementsByClassName('nextIcon')[0].src="./images/nextIconPressed.png";
+	}
+	function upAnim(section) {
+		section.style.backgroundColor="#f7f7f7";
+		section.style.color="#000000";
+		section.getElementsByClassName('nextIcon')[0].src="./images/nextIcon.png";
+		document.getElementsByClassName('headerText')[0].textContent=section.textContent;
+		let optionSections = document.getElementsByClassName('optionSection');
+		for(let i = 0; i < optionSections.length; i++) {
+			optionSections[i].style.display = 'none';
+		}
+
+		document.getElementsByClassName('textSection')[0].style.display = 'block';
+		switch(section.textContent) {
+			case 'About Me':
+				$('#textBox').load('./about_me.html');
+				break;
+			case 'Resume':
+				$('#textBox').load('./professional_image.html');
+				break;
+			case 'Portfolio':
+				$('#textBox').load('./portfolio.html');
+				break;
+			case 'Recommendations':
+				$('#textBox').load('./recommendations.html');
+				break;
+		}
+		document.getElementsByClassName('backButton')[0].style.display = 'flex';
+	}
+	function  backToMenu(backButton) {
+		document.getElementsByClassName('headerText')[0].textContent='arjunlalith';
+		let optionSections = document.getElementsByClassName('optionSection');
+		for(let i = 0; i < optionSections.length; i++) {
+			optionSections[i].style.display = 'flex';
+		}
+
+		document.getElementsByClassName('textSection')[0].style.display = 'none';
+		document.getElementsByClassName('backButton')[0].style.display = 'none';
+
+	}
+</script>
+</head>
+<body class="iOSbackground">
+	<header class="iOSHeader">
+		<div class="backButton" ontouchstart="backToMenu(this)" onmousedown="backToMenu(this)" ><b>Back</b></div>
+		<b class="headerText">arjunlalith</b>
+	</header>
+	<div class="topSection optionSection" ontouchstart="downAnim(this)" ontouchend="upAnim(this)" onmouseup="upAnim(this)"><b>About Me</b><img class="nextIcon" src="./images/nextIcon.png"/></div>
+	<div class="botSection optionSection" ontouchstart="downAnim(this)" ontouchend="upAnim(this)"><b>Resume</b><img class="nextIcon" src="./images/nextIcon.png"/></div>
+
+	<div class="topSection optionSection" ontouchstart="downAnim(this)" ontouchend="upAnim(this)"><b>Portfolio</b><img class="nextIcon" src="./images/nextIcon.png"/></div>
+	<div class="botSection optionSection" ontouchstart="downAnim(this)" ontouchend="upAnim(this)"><b>Recommendations</b><img class="nextIcon" src="./images/nextIcon.png"/></div>
+	<div class="textSection optionSection" id='textBox'></div>
+</body>
+</html>

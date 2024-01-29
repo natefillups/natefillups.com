@@ -1,73 +1,647 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-                      "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <title>Nate Phillips' Homepage</title>
-  <link rel="stylesheet" href="main.css" type="text/css">
- <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<!DOCTYPE HTML> <html> <head> <title>arjunlalith.com</title> <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<body onload="displayTime()">
+	<style>
+.landing-layout{
+	background: url('./images/windowsxp.jpg') top  / cover;
+	height: calc(100vh - 32px);
+	}
+.landing-layout .mdl-layout__header, .landing-layout .mdl-layout__drawer-button{
+	color: white;
+	}
+.footer-layout, .mdl-layout__drawer, .mdl-layout__header .mdl-layout__drawer-button i, .mdl-layout__header {
+	position: absolute;
+	bottom: 0;
+}
+.mdl-layout__header {
+	height: 32px;
+}
+.start {
+	background: url('./images/start_luna1.png');
+	height: 31px;
+	width: 99px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
 
-<body>
+.winlogo {
+	margin-left: 11px;
+	width: 17px;
+	height: 17px;
 
-<div class="title">Nate Phillips' Homepage</div>
-<p><a href="img/NatePhillips.HEIC">
-<img align="right" width="320" height="395" src="img/NatePhillips.HEIC" alt="photo">
-</a></p>
+}
+.taskbar {
+	padding-left: 0;
+	background: url('./images/xp_bg.png') ;
+	background-repeat: repeat-x;
+	height: 32px;
+	display: flex;
+	width: 100vw;
+	flex-direction: row;
+	position: relative;
+}
+.text {
+	text-shadow: .1em .1em rgba(0,0,0, 0.3);
+	color: white;
+}
+.mdl-layout-spacer {
+	position: static;
+}
+.page-content {
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+}
+.mdl-layout__content {
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: row;
+}
 
-<div class="box">About Me</div>
+.nav_opt {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	margin-top: 15px;
+	font-size: 0.9em;
+	
+}
 
-<div class="text">
-<p>
-As a high level summary, I am a well-known leader who is distinguished by a
-<a href="https://github.com/natefillups">hands-on approach</a> to building systems.
-</p>
+.nav-menu {
+	height: 383px;
+	width: 380px;
+	position: absolute;
+	bottom: 32px;
+	padding-top: 66px;
+	visibility: hidden;
+	z-index: 9999;
+	background: url('./images/navmenu.png') ;
+}
+body {
+	margin: 0px;
+	width: 100vw;
+	overflow-x: hidden;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+	font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif; 
+	cursor: url('./images/Cursor52.png'), auto;
+}
+a {
+	cursor: url('./images/Cursor66.png'), auto;
+}
+.file_name {
+	color: white;
+	margin-left: 4px;
+	text-align: center;
+	font-family: Tahoma, Geneva, sans-serif
+}
+.space { 
+	height: 30px;
+}
 
-<ul>
-<li>I am current a student attend <a href="https://www.webb.edu/">Webb Institute</a> graduating in June 2023.</li>
+.window-content-clone {
+	width: 640px;
+	min-width: 310px;
+	float: left;
+	min-height: 140px;
+	height: 450px;
+	visibility: hidden;
+	word-wrap: break-word;
+	display: flex; flex-direction: row;
+	position: absolute;
+	top: 0px;
+}
+.center-side {
+	display: flex;
+	flex-direction:column;
+	width: 100%;
+}
+.time_text{
+	position: absolute;
+	right: 0;
+	margin-right: 5px;
+	font-size: 12px;
+}
+.true_window {
+	overflow: scroll;
+	margin-top: 5%;
+	margin-left: 1%;
+	height: 88%;
+}
+.true-window-clone {
+	flex-grow: 1;
+	width: 100%;
+	background-color: #ffffff; 
+	border-style: solid;
+	border-width: 1px;
+	border-color: #7f9db9;
+	overflow: scroll;
+	-webkit-touch-callout: text; /* iOS Safari */
+	-webkit-user-select: text; /* Safari */
+	-khtml-user-select: text; /* Konqueror HTML */
+	-moz-user-select: text; /* Old versions of Firefox */
+	-ms-user-select: text; /* Internet Explorer/Edge */
+	user-select: text; 
+}
+.icon_pic{
+	display: block;
+	margin: 0 auto;
+}
+.icon {
+	margin-left: 2vw;
+	height: 0;
+}
+.task {
+	background-image: url('./images/taskbar.png');
+	width: 160px;
+	height: 23px;
+	visibility: hidden;
+	margin-top: 4px;
+	margin-right: 1px;
+}
+.sysmessage {
+	background-image: url('./images/sysmessage.png');
+	width:147px;
+	height: 31px;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	right:0;
+}
+.task_name {
+	color: white;
+	margin-left: 31px;
+	font-size: 10px;
+}
+.file-title {
+	min-height: 30px;
+	height: 30px;
+	width: 100%;
+	background-image: url('./images/window_top.png');
+	background-repeat: repeat-x;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+	
+}
+.file-img {
+	width: 15px;
+	height: 15px;
+	margin-left: 1px;
+}
+.window_buttons {
+	position: absolute;
+	right:0;
+	margin-top: 2px;
+	margin-right: 2px;
+}
+.window_button {
+	width: 21px;
+	height: 21px;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
+.menu_bar {
+	background-color: #ece9d8;
+	max-height: 19px;
+	min-height: 19px;
+	height: 19px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.white_bar{
+	min-height: 1px;
+	height: 1px;
+	max-height: 1px;
+	width: 100%;
+	background-color: #ffffff;
+}
+.menu_text {
+	font-size: 0.8em;
+	margin-left: 1em;
+}
+.file-title-left {
+	width: 4px;
+	height: 30px;
+}
+.full-file-title {
+	display: flex;
+	flex-direction: row;
+}
+.left-window {
+	background-image: url('./images/left_window.png');
+	background-repeat: repeat-y; 
+	flex-grow: 1;
+}
+.top-left-window {
+	background-image: url('./images/top_left_window.png');
+	height: 30px;
+	width: 1px;
+}
+.top-right-window {
+	background-image: url('./images/top_right_window.png');
+	height: 30px;
+	width: 1px;
+}
+.left-corner {
+	width: 4px;
+	height: 4px;
+	position: absolute;
+	bottom: 0;
+}
+.left-side {
+	display: flex;
+	flex-direction: column;
+}
+.file-title-right {
+	width: 4px;
+	height: 30px;
+}
+.right-corner {
+	width: 4px;
+	height: 4px;
+	position: absolute;
+	bottom: 0;
+}
+.right-side {
+	display: flex;
+	flex-direction: column;
+}
+.right-window {
+	background-image: url('./images/right_window.png');
+	background-repeat: repeat-y; 
+	flex-grow: 1;
+}
+.bottom-window {
+	background-image: url('./images/bottom_window.png');
+	width:100%;
+	height: 4px;
+	max-height: 4px;
+	min-height: 4px;
+	background-repeat: repeat-x;
+	position: relative;
+	bottom: 0;
+}
+.start_button {
+	margin-left: 6px;
+	font-size: 16px;
+}
+.spacer {
+	width: 10px;
+}
+	</style>
 
-<li>I am studying Naval Architecture & Marine Engineering at school, but I have a strong passion for computer programming.</li>
+	<div class="landing-layout mdl-js-layout mdl-layout">
+		<div class="page-content">
+			<div onclick="loadAboutMe()" id="icon1" class="icon">
+			<img class = "icon_pic" src="./images/SHELL32_152.png"/>
+			<div class=text>About Me</div>
+			</div>
+			<div onclick="loadResume()" id="icon2" class="icon">
+			<img class="icon_pic" src="./images/SHELL32_152.png"/>
+			<div class=text>Resume</div>
+			</div>
+			<div onclick="loadPortfolio()" id="icon3" class = "icon">
+				<img class = "icon_pic" src="./images/SHELL32_152.png"/>
+				<div class=text>Portfolio</div>
+			</div>
+			<div onclick="loadRecommendations()" id="icon4" class = "icon">
+				<img class = "icon_pic" src="./images/SHELL32_152.png"/>
+				<div class=text>Recommendations</div>
+			</div>
+		</div>
+		<div draggable="true" id="window" class="window-content-clone">
+			<div class="left-side">
+				<img class="file-title-left" src="./images/file_left.png">
+				<div class="left-window"></div>
+				<img class="left-corner" src="./images/bot_left_corner.png"/>
+			</div>
+			<div class="center-side">
+				<div id="drag_handle" class=full-file-title>
+					<div class="top-left-window"></div>
+					<div class="file-title">
+						<img class="file-img" src="./images/notepad_icon.png" />
+						<span class="file_name"><strong>Untitled - Notepad</strong></span>
+						<div id="not_draggable" class="window_buttons">
+							<img onmouseover="changeToMouseHover(this)" onmouseout="changeToNorm(this)" onmousedown="changeToDownPress(this)" onmouseup="minimize(this)" class="window_button" src="./images/minimize.png"/>
+							<img onmouseover="changeToMouseHover(this)" onmouseout="changeToNorm(this)" onmousedown="changeToDownPress(this)" onmouseup="maximize(this)" class="window_button" src="./images/max.png" />
+							<img onmouseover="changeToMouseHover(this)" onmouseout="changeToNorm(this)" onmousedown="changeToDownPress(this)" onmouseup="closeButton(this)" class="window_button" src="./images/x_button.png" />
+						</div>
+					</div>
+					<div class="top-right-window"></div>
+				</div>
+				<div class="menu_bar">
+					<span class="menu_text">File</span>
+					<span class="menu_text">Edit</span>
+					<span class="menu_text">Format</span>
+					<span class="menu_text">View</span>
+					<span class="menu_text">Help</span>
+				</div>
+				<div class="white_bar">
+				</div>
+				<div id="true_window" class="true-window-clone">
+				</div>
+				<div class="bottom-window"></div>
+			</div>
+			<div class="right-side">
+				<img class="file-title-right" src="./images/file_right.png">
+				<div class="right-window"></div>
+				<img class="right-corner" src="./images/bot_right_corner.png"/>
+			</div>
+		</div>
+		<div class="footer-layout mdl-js-layout mdl-layout mdl-layout mdl-layout--fixed-header">
+			<div id="nav-menu" class="nav-menu">
+				<div onclick="loadAboutMe()" class="nav_opt"><img src="./images/SHELL32_152.png"/>About Me</div>
+				<div class="space"></div>
+				<div onclick="loadResume()" class="nav_opt"><img src="./images/SHELL32_152.png"/>Resume</div>
+				<div onclick="loadPortfolio()" class="nav_opt"><img src="./images/SHELL32_152.png"/>Portfolio</div>
+				<div onclick="loadRecommendations()" class="nav_opt"><img src="./images/SHELL32_152.png"/>Recommendations</div>
+			</div>
+			<header class="mdl-layout__header mdl-layout__header--transparent">
+				<div id="taskbar" class="taskbar mdl-layout__header-row">
+					<div onmouseover="changeToBrightStart()" onmouseout="backToNorm()" onclick="myFunction()" id="start" class="start">
+					<img class="winlogo" src="./images/winlogo.png"/>
+					<strong class="start_button">arjun</strong>
+					</div>
+					<div class="spacer"></div>
+				<div  class="sysmessage">
+					<span id="datetime" class="time_text"></span>
+				</div>
+			</header>
+			</div>
+		</div>
+	</div>
+	<script>
+		var aboutMeTask;
+		var recommendationsTask;
+		var resumeTask;
+		var portfolioTask;
+		function changeToMouseHover(image) {
+			console.log(image.src)
+			switch(image.src) {
+				case 'https://arjunlalith.com/images/minimize.png':
+				case 'https://www.arjunlalith.com/images/minimize.png':
+					image.src='/images/minhover.png';
+					break;
+				case 'https://arjunlalith.com/images/max.png':
+				case 'https://www.arjunlalith.com/images/max.png':
+					image.src='/images/maxhover.png';
+					break;
+				case 'https://arjunlalith.com/images/window_button.png':
+				case 'https://www.arjunlalith.com/images/window_button.png':
+					image.src='/images/winhover.png';
+					break;
+				case 'https://arjunlalith.com/images/x_button.png':
+				case 'https://www.arjunlalith.com/images/x_button.png':
+					image.src='/images/closehover.png';
+					break;
 
-<li>Co-founder of <a href="mining.html">Phillips Mining</a>.</li>
+			}
 
-<li>Proficient in Traditional Mandarin Chinese and English.</li>
-</ul>
+		}
+		function changeToDownPress(image) {
+			console.log(image.src)
+			switch(image.src) {
+				case 'https://arjunlalith.com/images/minhover.png':
+				case 'https://www.arjunlalith.com/images/minhover.png':
+					image.src='/images/minpressed.png';
+					break;
+				case 'https://arjunlalith.com/images/maxhover.png':
+				case 'https://www.arjunlalith.com/images/maxhover.png':
+					image.src='/images/maxpressed.png';
+					break;
+				case 'https://arjunlalith.com/images/winhover.png':
+				case 'https://www.arjunlalith.com/images/winhover.png':
+					image.src='/images/winpressed.png';
+					break;
+				case 'https://arjunlalith.com/images/closehover.png':
+				case 'https://www.arjunlalith.com/images/closehover.png':
+					image.src='/images/closepressed.png';
+					break;
 
-<p>For more information, please see:</p>
+			}
 
-<ol>
-<li>I am <a href="https://twitter.com/natefillups">@natefillups</a> on Twitter, <a href="https://github.com/natefillups">natefillups</a> on GitHub, and am <a href="https://www.linkedin.com/in/nphillips23/">on LinkedIn</a>.</li>
-<li><a href="Resume.pdf">My resumé page</a>.</li>
-<li>Feel free to contact me at <a href="mailto:contact@nbp23.com">contact@nbp23.com</a>.</li>
-<li>I am not a web designer.</li>
-</ol>
+		}
+		function myFunction() {
+			if(document.getElementById("nav-menu").style.visibility == "visible") {
+				document.getElementById("nav-menu").style.visibility = "hidden";
+				document.getElementById("start").style.background = "url('./images/start_luna1.png') top / cover";
+				console.log(document.getElementById("nav-menu"));
+			}
+			else {
+				document.getElementById("nav-menu").style.visibility = "visible";
+				document.getElementById("start").style.background = "url('./images/start_pressed.png') top / cover";
+				console.log(document.getElementById("nav-menu"));
+			}
+		}
+		function loadAboutMe() {
+			if(aboutMeTask == null) {
+				aboutMeTask = createTaskHTML();
+				console.log(aboutMeTask);
+				document.getElementsByClassName("taskbar")[0].appendChild(aboutMeTask);
+				aboutMeTask.getElementsByClassName("task_name")[0].textContent = "About Me - Notepad";
+				aboutMeTask.onclick=function() {loadAboutMe()};
+			}
+			$('#true_window').load('./about_me.html');
+			document.getElementsByClassName("file_name")[0].textContent="About Me - Notepad";
+			setupWindow();
+			aboutMeTask.style.backgroundImage="url('./images/taskbar.png')";
+		}
+		function loadResume() {
+			if(resumeTask == null) {
+				resumeTask = createTaskHTML();
+				console.log(resumeTask);
+				document.getElementsByClassName("taskbar")[0].appendChild(resumeTask);
+				resumeTask.getElementsByClassName("task_name")[0].textContent = "Resume - Notepad";
+				resumeTask.onclick=function() {loadResume()};
+			}
+			document.getElementsByClassName("file_name")[0].textContent="Resume - Notepad";
+			$('#true_window').load('./resume.html');
+			setupWindow();
+			resumeTask.style.backgroundImage="url('./images/taskbar.png')";
+		}
+		function loadPortfolio() {
+			if(portfolioTask == null) {
+				portfolioTask = createTaskHTML();
+				console.log(portfolioTask);
+				document.getElementsByClassName("taskbar")[0].appendChild(portfolioTask);
+				portfolioTask.getElementsByClassName("task_name")[0].textContent = "Portfolio - Notepad";
+				portfolioTask.onclick=function() {loadPortfolio()};
+			}
+			document.getElementsByClassName("file_name")[0].textContent="Portfolio - Notepad";
+			$('#true_window').load('./portfolio.html');
+			setupWindow();
+			portfolioTask.style.backgroundImage="url('./images/taskbar.png')";
+		}
+		function loadRecommendations() {
+			if(recommendationsTask == null) {
+				recommendationsTask = createTaskHTML();
+				console.log(recommendationsTask);
+				document.getElementsByClassName("taskbar")[0].appendChild(recommendationsTask);
+				recommendationsTask.getElementsByClassName("task_name")[0].textContent = "Recommendations - ...";
+				recommendationsTask.onclick=function() {loadRecommendations()};
+			}
+			$('#true_window').load('./recommendations.html');
+			document.getElementsByClassName("file_name")[0].textContent="Recommendations - Notepad";
+			setupWindow();
+			recommendationsTask.style.backgroundImage="url('./images/taskbar.png')";
+		}
+		function displayTime() {
+			var preload = new Array();
+			preload[0] = "./images/start_luna_bright.png";
+			preload[0] = "./images/start_pressed.png";
+			preload[1] = "./images/minhover.png";
+			preload[2] = "./images/maxhover.png";
+			preload[3] = "./images/winhover.png";
+			preload[4] = "./images/closehover.png";
+			preload[5] = "./images/minpressed.png";
+			preload[6] = "./images/winpressed.png";
+			preload[7] = "./images/closepressed.png";
+			preload[8] = "./images/maxpressed";
+			preload[9] = "./images/window_button";
+			var loadedimages = new Array();
+			for(var i = 0; i < preload.length; i++) {
+				loadedimages[i] =  new Image();
+			 	loadedimages[i].src = preload[i];
+			 }
+			var dt = new Date();
+			document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 
-</div>
+			$('#icon1').draggable();
+			$('#icon2').draggable();
+			$('#icon3').draggable();
+			$('#icon4').draggable();
+		}
+		function changeToBrightStart() {
+			if(getComputedStyle(document.getElementById("nav-menu"), null).visibility == "hidden") {
+				document.getElementById("start").style.backgroundImage = "url('./images/start_luna_bright.png')";
+			}
+		}
+		function backToNorm() {
 
-<div class="box">Work Experience</div>
+			if(getComputedStyle(document.getElementById("nav-menu"), null).visibility == "hidden") {
+				document.getElementById("start").style.backgroundImage = "url('./images/start_luna1.png')";
+			}
+		}
+		function minimize(image) {
+			document.getElementById("window").style.visibility="hidden";
+			var tasks = document.getElementsByClassName("task");
+			for(var i = 0; i < tasks.length; i++) {
+				tasks[i].style.backgroundImage="url('./images/taskbar_unused.png')";
+			}
+			image.src = 'https://arjunlalith.com/images/minimize.png';
+		}
+		function changeToNorm(image) {
+			switch(image.src) {
+			 	case 'https://arjunlalith.com/images/minpressed.png':
+				case 'https://arjunlalith.com/images/minhover.png':
+			 	case 'https://www.arjunlalith.com/images/minpressed.png':
+				case 'https://www.arjunlalith.com/images/minhover.png':
+					image.src='/images/minimize.png';
+					break;
+			 	case 'https://arjunlalith.com/images/maxpressed.png':
+				case 'https://arjunlalith.com/images/maxhover.png':
+			 	case 'https://www.arjunlalith.com/images/maxpressed.png':
+				case 'https://www.arjunlalith.com/images/maxhover.png':
+					image.src='/images/max.png';
+					break;
+			 	case 'https://arjunlalith.com/images/winpressed.png':
+				case 'https://arjunlalith.com/images/winhover.png':
+			 	case 'https://www.arjunlalith.com/images/winpressed.png':
+				case 'https://www.arjunlalith.com/images/winhover.png':
+					image.src='/images/window_button.png';
+					break;
+			 	case 'https://arjunlalith.com/images/closepressed.png':
+				case 'https://arjunlalith.com/images/closehover.png':
+			 	case 'https://www.arjunlalith.com/images/closepressed.png':
+				case 'https://www.arjunlalith.com/images/closehover.png':
+					image.src='/images/x_button.png';
+					break;
 
-<div class="text">
+			}
 
-<p>I am currently working at Capital One as an associate software engineer. I am currently working in Java using APIs and streams to process backend data for auto loan origination programs. I am also working with Angular for the front-end.</p>
+		}
+		function maximize(image) {
+			switch(image.src) {
+				case 'https://arjunlalith.com/images/maxpressed.png':
+				case 'https://www.arjunlalith.com/images/maxpressed.png':
+					document.getElementsByClassName("window-content-clone")[0].style.width="100vw";
+					document.getElementsByClassName("window-content-clone")[0].style.height="calc(100vh - 32px)";
+					document.getElementsByClassName("window-content-clone")[0].style.top = 0;
+					document.getElementsByClassName("window-content-clone")[0].style.left = 0;
+					document.getElementsByClassName("left-side")[0].style.display = "none";
+					document.getElementsByClassName("right-side")[0].style.display = "none";
+					document.getElementsByClassName("bottom-window")[0].style.display = "none";
+					image.src='/images/window_button.png';
+					break;
+				case 'https://arjunlalith.com/images/winpressed.png':
+				case 'https://www.arjunlalith.com/images/winpressed.png':
+					document.getElementsByClassName("window-content-clone")[0].style.width="640px";
+					document.getElementsByClassName("window-content-clone")[0].style.height="450px";
+					document.getElementsByClassName("window-content-clone")[0].style.top = 0;
+					document.getElementsByClassName("window-content-clone")[0].style.left = 0;
+					document.getElementsByClassName("left-side")[0].style.display = "flex";
+					document.getElementsByClassName("right-side")[0].style.display = "flex";
+					document.getElementsByClassName("bottom-window")[0].style.display = "block";
+					image.src='/images/max.png';
+					break;
+			}
 
-<p>From May 2022 to July 2022, I worked at Herbert-ABS Software Solutions LLC. Herbert-ABS is a software company concerned with developing analysis and design tools that aid in Maritime tasks. I first conducted research on a genetic algorithm library that would be compatible with the code base. There are thousands of Python ML libraries that support different operations. Mine had to be compatible with basic functions, such as crossover and gene mutation. The ultimate conclusion was that no libraries were suitable given our constraints, so we made our own NGSA-II algorithm library. After researching, I ported their old Visual Basic 6 code from a previous release to Python 2.7. The deceivingly challenging task led me to learn about the code base extensively. During my final few weeks, I coded in C# on the main HECSTAB software. Having already familiarized myself with the code base, I was able to develop the power optimization and power graph features with ease.</p>
+		}
+		function closeButton(image) {
+			document.getElementById("window").style.visibility="hidden";
+			image.src='/images/x_button.png';
+			console.log(image.parentElement.parentElement.getElementsByClassName("file_name")[0].textContent);
+			switch(image.parentElement.parentElement.getElementsByClassName("file_name")[0].textContent) {
+				case 'About Me - Notepad':
+			 		document.getElementsByClassName("taskbar")[0].removeChild(aboutMeTask);	
+			 		aboutMeTask = null;
+			 		break;
+				case 'Resume - Notepad':
+			 		document.getElementsByClassName("taskbar")[0].removeChild(resumeTask);	
+			 		resumeTask = null;
+			 		break;
+				case 'Portfolio - Notepad':
+			 		document.getElementsByClassName("taskbar")[0].removeChild(portfolioTask);	
+			 		portfolioTask = null;
+			 		break;
+				case 'Recommendations - Notepad':
+			 		document.getElementsByClassName("taskbar")[0].removeChild(recommendationsTask);	
+			 		recommendationsTask = null;
+			 		break;
+			}
 
-<p>From January 2022 to March 2022, I worked at BAE Systems in Norfolk, VA where I created a ship data-sheet merger. Using python I parsed data from three different sources and combined all the data into one excel sheet. I also performed financial analysis in excel and create a CPI system for the Norfolk shipyard through the use of PowerBI. I also worked with the project director to perform ship scheduling.</p>
-
-<p>From July 2021 to August 2021, I worked at Vigor Industrial in Seattle, WA. I did scheduling tasks for the ongoing guided missle cruisers that were getting refitted and created a program that parsed the schedule for any conflicting tasks.</p>
-
-<p>From January 2021 to March 2021, I worked at Metal Shark Boats in Rijeka, Croatia. I worked as a structural engineering intern and performed FEA on different parts of vessels. I used Rhino to start initial design for a 100m sailboat from AutoCAD.</p>
-
-<p>From January 2020 to March 2020, I worked at Resolve Marine in Theodore, AL. I worked as a shipyard intern and performed basic shipyard tasks including mooring, docking, painting, operating, and handling equipment as they got prepped to send it out on salvage operations.</p>
-
-</div>
-
-<div class="box">Projects</div>
-
-<div class="text">
-
-<p>My undergraduate thesis titled, "An Intelligent Collision Avoidance System Based on Deep Reinforcement Learning," looked into using Deep Reinforcement Learning (DRL) to train a Neural Network (NN) in <a href="https://www.unity.com">Unity</a>. 
-  The objectives of the thesis were to investigate Deep Learning (DL) and its use for collision avoidance on autonomous vessels. As part of this work, a deep neural network was chosen and implemented into a boat operating in a simulated environment.
-  The NN was trained using DRL to avoid collisions in real-time with the use of Unity. The network was also trained to reach with basic United Stated Coast Guard rules of the road in mind. The files for the thesis can be found on my <a href="https://github.com/natefillups">Github</a>.
-  There were two models created in total a <a href="https://github.com/natefillups/Collision-Avoidance-Boat-Simplified">simplified</a> and more <a href="https://github.com/natefillups/Collision-Avoidance-Boat">complex</a> model.</p>
-  
-</div>
+		}
+		function createTaskHTML() {
+			var task = document.createElement("div");
+			task.classList.add("task");
+			task.innerHTML = '<span id="task_name1" class="task_name">Untitled - Notepad</span>';
+			task.style.visibility = "visible";
+			return task;
+		}
+		function setupWindow() {
+			document.getElementById("window").style.visibility = "visible";
+			$('#window').resizable({ containment: "parent" }).draggable({ containment: "parent", handle: "#drag_handle" });
+			var tasks = document.getElementsByClassName("task");
+			for(var i = 0; i < tasks.length; i++) {
+				tasks[i].style.backgroundImage="url('./images/taskbar_unused.png')";
+			}
+		}
+	</script>
+</body>
+</html>
