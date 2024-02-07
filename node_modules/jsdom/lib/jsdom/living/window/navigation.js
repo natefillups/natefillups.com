@@ -1,13 +1,13 @@
 "use strict";
 const whatwgURL = require("whatwg-url");
-const arrayEqual = require("array-equal");
 const notImplemented = require("../../browser/not-implemented.js");
 const reportException = require("../helpers/runtime-script-errors.js");
 const idlUtils = require("../generated/utils.js");
 
 exports.evaluateJavaScriptURL = (window, urlRecord) => {
   const urlString = whatwgURL.serializeURL(urlRecord);
-  const scriptSource = whatwgURL.percentDecode(Buffer.from(urlString)).toString();
+  const encodedScriptSource = urlString.substring("javascript:".length);
+  const scriptSource = Buffer.from(whatwgURL.percentDecodeString(encodedScriptSource)).toString();
   if (window._runScripts === "dangerously") {
     try {
       return window.eval(scriptSource);
@@ -77,17 +77,9 @@ function navigateFetch(window) {
   notImplemented("navigation (except hash changes)", window);
 }
 
+// https://url.spec.whatwg.org/#concept-url-equals
 function urlEquals(a, b, flags) {
-  if (a.scheme !== b.scheme ||
-      a.username !== b.username ||
-      a.password !== b.password ||
-      a.host !== b.host ||
-      a.port !== b.port ||
-      !arrayEqual(a.path, b.path) ||
-      a.query !== b.query ||
-      // Omitted per spec: url.fragment !== this._url.fragment ||
-      a.cannotBeABaseURL !== b.cannotBeABaseURL) {
-    return false;
-  }
-  return flags.excludeFragments || a.fragment === b.fragment;
+  const serializedA = whatwgURL.serializeURL(a, flags.excludeFragments);
+  const serializedB = whatwgURL.serializeURL(b, flags.excludeFragments);
+  return serializedA === serializedB;
 }
