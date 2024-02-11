@@ -8,7 +8,7 @@ const { JSDOM } = jsdom;
 const app = express();
 app.use("/images", express.static('./images'));
 app.use("/portfolio.html", express.static("./portfolio.html"));
-app.use("/recommendations.html", express.static("./recommendations.html"));
+// app.use("/recommendations.html", express.static("./recommendations.html"));
 app.use("/about_me.html", express.static("./about_me.html"));
 app.use("/resume.html", express.static("./resume.html"));
 var urlencodedParser = bodyParser.json({ extended: false});
