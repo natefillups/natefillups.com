@@ -1,7 +1,7 @@
 {
   "name": "website",
   "version": "1.0.0",
-  "description": "My personal website. The goal is to emulate the look and feel of Windows XP. Most resources were pulled from Windows XP and are owned by Microsoft Corporation, not me. Live Demo can be found [here](https://www.natefillups.com)",
+  "description": "My personal website. The goal is to emulate the look and feel of Windows XP. Most resources were pulled from Windows XP and are owned by Microsoft Corporation, not me. Live Demo can be found [here](//www.natefillups.com)",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/natefillups/natefillups.com.git"
+    "url": "git+//github.com/natefillups/natefillups.com.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/natefillups/natefillups.com/issues"
+    "url": "//github.com/natefillups/natefillups.com/issues"
   },
-  "homepage": "https://github.com/natefillups/natefillups.com#readme",
+  "homepage": "//github.com/natefillups/natefillups.com#readme",
   "dependencies": {
     "express": "^4.18.2",
     "jsdom": "^24.0.0"
